@@ -1,0 +1,19 @@
+{
+  "name": "chat_generico",
+  "version": "0.1",
+  "description": "Applicacion de chat simple",
+  "main": "index.js",
+  "scripts": {
+    "start": "forever start src/server.js",
+    "stop": "forever stopall",
+    "restart": "forever restart src/server.js"
+  },
+  "author": "leonardo alegre",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "express-socket.io-session": "^1.3.5",
+    "socket.io": "^2.3.0"
+  }
+}

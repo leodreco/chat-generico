@@ -1,0 +1,33 @@
+.cont_salas{
+    position: absolute;
+    width: 100%;
+    left: -100%;
+    transition: .5s;
+    z-index: 10;
+}
+.main_chat{
+    width:100%;
+}
+.chat{
+    width:100%;
+    padding-left: 30px;
+}
+#btnSalas{
+    z-index: 20;
+    display: block;
+    position: fixed;
+    top:50%;
+    transform: translateY(-50%);
+    transform: rotate(-90deg);
+    padding: 0px 50px;
+    font-size: 20px;
+    left: -63px;
+}
+
+.salas{
+    height: 65%;
+}
+
+.salas .sala{
+    padding-left: 50px;
+}

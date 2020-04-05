@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="black"/>
+    <title>Acerca | ChatGenerico</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            overflow: hidden;
+        }
+        body{
+            -webkit-perspective: 500px;
+            perspective: 500px;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            color: white;
+            font-size: 20px;
+        }
+        a{
+            color: #868686;
+        }
+        a:visited{
+        color: #AF77FF;
+    }
+    .img_ricardo{
+        display: none;
+        position: absolute;
+        margin-bottom: -50px;
+        z-index: -1;
+        height: 45vh;
+    }
+    ._1{
+        top:-20px;
+        left: -20px;
+        transform: rotate(135deg);
+    }
+    ._2{
+        top:-40px;
+        right: -50px;
+        transform: rotate(-135deg);
+    }
+    ._3{
+        left: -20px;
+        bottom: -20px;
+        transform: rotate(30deg);
+    }
+    ._4{
+        right: 0;
+        bottom: 0;
+        transform: rotate(-20deg);
+    }
+    .contenido{
+        width: 60%;
+        margin: auto;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .disco{
+        color:black;
+        /* -webkit-transform: rotateX(25deg) rotateY(20deg) rotateZ(-3deg);
+        transform: rotateX(25deg) rotateY(20deg) rotateZ(-3deg);   */
+
+        -webkit-animation: anim 3s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count:infinite;
+
+        animation: anim 3s;
+        animation-timing-function: linear;
+        animation-iteration-count:infinite;
+    }
+    @-webkit-keyframes anim {
+        0%{text-shadow:-6px 4px 0px red;}
+        10% {text-shadow:4px -6px 0px green;}
+        20% {text-shadow:-9px 4px 0px blue;}
+        30% {text-shadow:4px -6px 0px yellow;}
+        40% {text-shadow:-8px 4px 0px orange;}
+        50% {text-shadow:4px 5px 0px purple;}
+        60% {text-shadow:-6px 4px 0px brown;}
+        70% {text-shadow:4px 7px 0px pink;}
+        80% {text-shadow:-9px -4px 0px lime;}
+        90% {text-shadow:4px -6px 0px cyan;}
+        100% {text-shadow:-9px 4px 0px teal;}
+    }
+    @keyframes anim {
+        0%{text-shadow:-6px 4px 0px red;}
+        10% {text-shadow:4px -6px 0px green;}
+        20% {text-shadow:-9px 4px 0px blue;}
+        30% {text-shadow:4px -6px 0px yellow;}
+        40% {text-shadow:-8px 4px 0px orange;}
+        50% {text-shadow:4px 5px 0px purple;}
+        60% {text-shadow:-6px 4px 0px brown;}
+        70% {text-shadow:4px 7px 0px pink;}
+        80% {text-shadow:-9px -4px 0px lime;}
+        90% {text-shadow:4px -6px 0px cyan;}
+        100% {text-shadow:-9px 4px 0px teal;}
+    }
+    @media (max-width: 500px){
+        .img_ricardo{
+            max-height: 220px;
+        }
+        ._1{
+            top: 192px;
+            transform: rotate(94deg);
+        }
+        ._4{
+            bottom: 150px;
+            right: -50px;
+            transform: rotate(-72deg);
+        }
+        .contenido{
+            width:80%;
+        }
+    }
+    button{
+        position: absolute;
+        font-size: 25px;
+        left: 50%;
+        bottom: 15%;
+        transform: translateX(-50%);
+        background: red;
+        border:none;
+        color:white;
+        padding: 10px 30px;
+        border-radius: 15px;
+    }
+    p{
+        text-align: center;
+        display: none;
+        margin-top: 50px;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="contenido">
+            <h1>Chat Genérico <span style="font-size: 15px;">v0.1</span></h1>
+            24/11/2019<br>
+            Hecho por Leonardo Alegre<br>
+            con<br>
+            <a href="https://nodejs.org/es/" target="_blank">Node.js</a><br>
+            <a href="https://expressjs.com/" target="_blank">express</a><br>
+            <a href="https://socket.io/" target="_blank">socket.io</a><br>
+            <br><br>
+            Hosteado en <a href="https://www.linode.com/es/" target="_blank">Linode</a>
+            <br><br><br>
+            <a href="/">Volver</a>
+        </div>
+        <p> 
+            Sin un motivo en específico...<br>
+            solo hacia la tarea que te deja<br>
+            socket.io despues de terminar<br>
+            el tutorial xd
+        </p>
+        <button onclick="asd();">Click</button>
+    <img class="img_ricardo _1"  src="https://media.tenor.com/images/a9adda18a78
+5b1cb85eec04517d99178/tenor.gif" alt="Ricardo">
+    <img class="img_ricardo _2"  src="https://media1.tenor.com/images/6c694726c0
+0d5b526790878676273aab/tenor.gif?itemid=13369215" alt="Ricardo">
+    <img class="img_ricardo _3"  src="https://em.wattpad.com/7cc36ff8a06dadf8aac
+2264a863dd3fe8d73b3a6/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f77617474
+7061642d6d656469612d736572766963652f53746f7279496d6167652f6932496775744a41675853
+5a36673d3d2d3731313437303531322e313538663638616539363030636330323430383236393833
+3136312e676966" alt="Ricardo">
+    <img class="img_ricardo _4"  src="https://media1.tenor.com/images/67f3cde62f
+1d53330094ba27c59b11e1/tenor.gif?itemid=13248430" alt="Ricardo">
+
+    <audio id="myAudio">
+        <source src="https://chatgenerico.online/img/lordly_instrumental.mp3" type="audio/ogg">
+        <source src="https://chatgenerico.online/img/lordly_instrumental.mp3" type="audio/mpeg">
+        :C
+    </audio>
+    <script>
+        var x = document.getElementById("myAudio");
+        function playAudio() {
+            x.play();
+        }
+        function asd(){
+            document.querySelector('button').style.display = 'none';
+            x.volume = .7;
+            x.play();
+            let imgs = document.querySelectorAll('.img_ricardo');
+            setTimeout(() => {
+                // document.querySelector('p').style.display = 'block';
+                document.querySelector('.contenido').classList.add('disco')
+                imgs.forEach(element => {
+                    element.style.display = 'block';
+                });
+            }, 3850);
+    
+        }
+        </script>
+        <!-- https://codepen.io/Octavector/pen/RNgxpQ -->
+    </body>
+    </html>

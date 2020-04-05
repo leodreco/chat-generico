@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="black"/>
+    <title>ChatGenerico</title>
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" media="(max-width: 700px)" href="/css/movil.css">
+</head>
+<body>
+    <header>
+        <h1>ChatGenérico <noscript>(Activa el javascript)</noscript>
+        </h1>
+        <button id="btnLog">Usuario</button>
+    </header>
+    <div class="main">
+        <div class="cont_salas">
+            <div class="nueva_sala">
+                <p>Salas: <span id="num_salas">0</span></p>
+                <button id="btn_NuevaSala">+</button>
+            </div>
+            <div class="salas">
+            </div>
+            <a href="/about" target="_blank">Información</a>
+        </div>
+        <div class="main_chat">
+            <div class="sala_actual">Sala actual: <span id="sala_actual">desconectado
+</span></div>
+            <div class="chat"></div>
+            <button id="btnSalas">Salas</button>
+            <input type="text" name="textChat" id="textChat" />
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/socket_app.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

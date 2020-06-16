@@ -1,0 +1,33 @@
+.icon{
+    z-index: 1;
+}
+
+.icon::before{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    content: "";
+    background-repeat: no-repeat;
+}
+
+.icon.i_user::before{
+    background-image: url("/img/svg/user.svg");
+}
+
+.icon.i_enter::before{
+    background-image: url("/img/svg/enter.svg");
+}
+
+.icon.i_delete::before{
+    background-image: url("/img/svg/delete.svg");
+}
+
+.icon.i_send::before{
+    background-image: url("/img/svg/send.svg");
+}
+
+.icon.i_reload::before{
+    background-image: url("/img/svg/reload.svg");
+}

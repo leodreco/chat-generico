@@ -6,36 +6,110 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="black"/>
     <title>ChatGenerico</title>
+    <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="/css/estilos.css">
-    <link rel="stylesheet" media="(max-width: 700px)" href="/css/movil.css">
+    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href="/css/movil.css">
 </head>
 <body>
+
     <header>
-        <h1>ChatGenérico <noscript>(Activa el javascript)</noscript>
-        </h1>
-        <button id="btnLog">Usuario</button>
+
+        <button class="btn_menu">
+            <div class="line_btn_menu"></div>
+        </button>
+
+        <h1>Chat Genérico</h1>
+
+        <button id="btnLog" class="btn_user">
+            <i class="icon i_user"></i>
+        </button>
+
     </header>
+
     <div class="main">
-        <div class="cont_salas">
+
+        <div class="main_chat">
+            <div class="sala_actual">Sala actual: <span id="sala_actual">desconectado</span></div>
+            <div class="chat"></div>
+            <div class="text_box">
+                <textarea name="textChat" id="textChat" cols="30" rows="1" ></textarea>
+                <button class="btn_black btn_send">
+                    <i class="icon i_send"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="menu">
             <div class="nueva_sala">
                 <p>Salas: <span id="num_salas">0</span></p>
-                <button id="btn_NuevaSala">+</button>
+                <button class="btn_black" id="btn_NuevaSala">+</button>
             </div>
-            <div class="salas">
+            <div class="salas custom_scroll">
             </div>
-            <a href="/about" target="_blank">Información</a>
+            <a class="about" href="/about" target="_blank">Acerca de</a>
         </div>
-        <div class="main_chat">
-            <div class="sala_actual">Sala actual: <span id="sala_actual">desconectado
-</span></div>
-            <div class="chat"></div>
-            <button id="btnSalas">Salas</button>
-            <input type="text" name="textChat" id="textChat" />
+
+    </div>
+
+    <div class="modal" id="modal_usuario">
+        <div class="modal_background">
+            <div class="modal_wrapper">
+                <div class="modal_content">
+                    <div class="modal_header">
+                        <span>Nombre de usuario</span>
+                    </div>
+                    <div class="modal_body">
+                        <div class="current_username">
+                            Actual: <span id="lbl_username">Anónimo</span>
+                        </div>
+                        <div class="change_username">
+                            <input type="text"><button>Cambiar</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn_hide">
+                    <i class="icon i_delete"></i>
+                </button>
+            </div>
         </div>
     </div>
+
+    <div class="modal" id="modal_prueba">
+        <div class="modal_background">
+            <div class="modal_wrapper">
+                <div class="modal_content">
+                    <div class="modal_header">
+                        <span>Nombre de usuario</span>
+                    </div>
+                    <div class="modal_body">
+                        <div class="current_username">
+                            Actual: <span id="lbl_username">Anónimo</span>
+                        </div>
+                        <div class="change_username">
+                            <input type="text"><button>Cambiar</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn_hide">
+                    <i class="icon i_delete"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <template id="template_sala">
+        <div class="sala remove">
+            <span></span>
+            <div class="actions">
+                <button class="btn_unirse"><i class="icon i_enter"></i></button>
+                <button class="btn_eliminar"><i class="icon i_delete"></i></button>
+            </div>
+        </div>
+    </template>
+
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/socket_app.js"></script>
+    <script src="/js/app.js"></script>
     <script src="/js/login.js"></script>
 </body>
 </html>

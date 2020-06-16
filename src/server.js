@@ -1,3 +1,4 @@
+// hola
 var express = require('express');
 var session = require('express-session');
 const sharedsession = require('express-socket.io-session');
@@ -32,11 +33,6 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/new', function (req, res) {
-    res.sendFile(path.join(__dirname, 'newIndex/index.html'));
-});
-
-
 app.get('/about', function (req, res) {
     res.sendFile(path.join(__dirname, 'about.html'));
 });
@@ -54,17 +50,6 @@ app.get('/usuario', function (req, res) {
     } else {
         res.json({ 'state': false, 'user_name': null });
     }
-});
-
-var child;
-app.get('/code_server', function (req, res) {
-    var exec = require('child_process').exec;
-    child = exec('code-server --auth password --cert --port 8443 ..', function (error, stdout, stderr) {
-        res.send(stdout);
-        if (error != null) {
-            res.send(stdout);
-        }
-    });
 });
 
 // Atrapar error 404

@@ -1,33 +1,286 @@
-.cont_salas{
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    touch-action: pan-x pan-y;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    background: black;
+    color: white;
+}
+
+button[class^="btn"]{
+    border: none;
+    text-align: unset;
+    background: transparent;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+}
+
+header button{
+    margin: 15px 5px;
+}
+
+button.btn_black{
+    height: 50px;
+    width: 50px;
+    background: black;
+    color: white;
+    font-size: 35px;
+    border-radius: 19px;
+}
+
+header button::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-radius: 10px;
+    background: transparent;
+    position: absolute;
+    transition: all .5s ease-in-out;
+}
+
+header button:active::before{
+    background: #504e4e;
+    width: 100%;
+    height: 100%;
+}
+
+.line_btn_menu{
+    background: white;
+    width: 28px;
+    height: 4px;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+}
+.line_btn_menu::after,
+.line_btn_menu::before{
+    content: '';
+    position: absolute;
+    background: white;
+    width: 28px;
+    height: 4px;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.line_btn_menu::after{
+    transform: translateY(-10px);
+}
+
+.line_btn_menu::before{
+    transform: translateY(10px);
+}
+
+.btn_menu.open .line_btn_menu{
+    transform: translateX(-40px);
+    background: transparent;
+}
+
+.btn_menu.open .line_btn_menu::after{
+    transform: rotate(-45deg) translate(26px, 26px);
+    width: 33px;
+}
+
+.btn_menu.open .line_btn_menu::before{
+    transform: rotate(45deg) translate(26px, -26px);
+    width: 33px;
+}
+
+
+.menu{
+    z-index: 10;
+    position: absolute;
+    background: lightgray;
+    min-width: 275px;
+    padding: 5px 10px;
+    height: calc(100% - 70px);
+    transform: translateX(-275px);
+    transition: all .3s ease-in-out;
+}
+.menu.open{
+    transform: initial;
+}
+    .menu .nueva_sala{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.8em;
+    }
+
+    .menu .about{
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .salas{
+        margin-top: 10px;
+        height: calc(100% - 105px);
+        overflow: auto;
+    }
+        .sala{
+            margin-bottom: 10px;
+            padding: 5px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            transition: all .7s ease-in-out;
+        }
+        .sala.remove{
+            margin: 0;
+            padding: 0;
+            height: 0;
+            opacity: 0;
+        }
+            .actions{
+                display: flex;
+            }
+                .actions button{
+                    margin: 5px;
+                }
+                .actions button .icon::before{
+                    width: 25px;
+                    height: 25px;
+}
+
+
+.main_chat{
     position: absolute;
     width: 100%;
-    left: -100%;
-    transition: .5s;
-    z-index: 10;
+    height: calc(100% - 70px);
 }
-.main_chat{
-    width:100%;
+    .main_chat .sala_actual{
+        height: 30px;
+        font-size: 25px;
+    }
+    .chat{
+        scroll-behavior: smooth;
+        overflow: auto;
+        width: 100%;
+        height: calc(100% - 80px);
+        border: black solid;
+        border-width: 1px 0;
+        position: relative;
 }
-.chat{
-    width:100%;
-    padding-left: 30px;
+
+
+.text_box{
+    display: flex;
 }
-#btnSalas{
+    .btn_send{
+        margin: auto;
+    }
+    .text_box textarea{
+        width: calc(100% - 50px);
+        border: none;
+        resize: none;
+        padding: 12px;
+        font-size: 20px;
+}
+
+.custom_scroll::-webkit-scrollbar{
+    width: 7px;
+    height: 100%;
+    background-color: transparent;
+}
+.custom_scroll::-webkit-scrollbar-thumb{
+    background-color: grey;
+    border-radius: 10px;
+}
+
+
+/* modals */
+
+.modal{
     z-index: 20;
-    display: block;
-    position: fixed;
-    top:50%;
-    transform: translateY(-50%);
-    transform: rotate(-90deg);
-    padding: 0px 50px;
-    font-size: 20px;
-    left: -63px;
+    position: absolute;
+    display: none;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+    .modal_background{
+        padding: 20px;
+        padding-bottom: 15px;
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        transition: all .5s ease-in-out;
+    }
+    .modal.show .modal_background{
+        background: rgba(0,0,0,.7);
+    }
+        .modal_wrapper{
+            transform: translateY(110%) scale(.5);
+            height: 100%;
+        }
+        .modal.show .modal_wrapper{
+            animation-name: displaymodal;
+            animation-fill-mode: forwards;
+            animation-duration: .5s;
+        }
+            .modal_content{
+                height: calc(100% - 75px);
+                position: relative;
+                width: 100%;
+                border: gray solid 4px;
+                background: white;
+                border-radius: 30px;
+                padding: 10px;
+                touch-action: none;
+                font-size: 1.5rem;
+
+                display: flex;
+                flex-direction: column;
+            }
+                .modal_content .modal_header, .modal_content .modal_footer{
+                    height: 50px;
+                }
+                .modal_content .modal_body{
+                    height: 100%;
+                }
+            .modal .btn_hide{    
+                margin: auto;
+                margin-top: 15px;
+                background: white;
+                border-radius: 30px;
+                height: 60px;
+                width: 60px;
 }
 
-.salas{
-    height: 65%;
+#modal_usuario .current_username{
+    border: dashed 3px black;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.salas .sala{
-    padding-left: 50px;
+@keyframes displaymodal {
+    50%{
+        transform: translateY(30%) scale(.5);
+    }
+    100%{
+        transform: translateY(0) scale(1);
+    }
 }

@@ -137,44 +137,41 @@
         display: none;
         margin-top: 50px;
     }
+
+    #myAudio{
+        display: block;
+        margin: auto;
+        margin-top: 50px;
+        opacity: .5;
+    }
     </style>
     </head>
     <body>
         <div class="contenido">
-            <h1>Chat Genérico <span style="font-size: 15px;">v0.1</span></h1>
-            24/11/2019<br>
-            Hecho por Leonardo Alegre<br>
-            con<br>
+            <h1>Chat Genérico <span style="font-size: 15px;">v0.1.2</span></h1>
+            18/04/2020
+            <br>
+            <a href="https://github.com/leodreco/chat-generico" target="_blank">ChatGenerico - Github</a>
+            <br>
+            <br>
             <a href="https://nodejs.org/es/" target="_blank">Node.js</a><br>
             <a href="https://expressjs.com/" target="_blank">express</a><br>
             <a href="https://socket.io/" target="_blank">socket.io</a><br>
+            <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap 4 Icons</a><br>
             <br><br>
             Hosteado en <a href="https://www.linode.com/es/" target="_blank">Linode</a>
             <br><br><br>
             <a href="/">Volver</a>
         </div>
-        <p> 
-            Sin un motivo en específico...<br>
-            solo hacia la tarea que te deja<br>
-            socket.io despues de terminar<br>
-            el tutorial xd
-        </p>
         <button onclick="asd();">Click</button>
-    <img class="img_ricardo _1"  src="https://media.tenor.com/images/a9adda18a78
-5b1cb85eec04517d99178/tenor.gif" alt="Ricardo">
-    <img class="img_ricardo _2"  src="https://media1.tenor.com/images/6c694726c0
-0d5b526790878676273aab/tenor.gif?itemid=13369215" alt="Ricardo">
-    <img class="img_ricardo _3"  src="https://em.wattpad.com/7cc36ff8a06dadf8aac
-2264a863dd3fe8d73b3a6/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f77617474
-7061642d6d656469612d736572766963652f53746f7279496d6167652f6932496775744a41675853
-5a36673d3d2d3731313437303531322e313538663638616539363030636330323430383236393833
-3136312e676966" alt="Ricardo">
-    <img class="img_ricardo _4"  src="https://media1.tenor.com/images/67f3cde62f
-1d53330094ba27c59b11e1/tenor.gif?itemid=13248430" alt="Ricardo">
+    <img class="img_ricardo _1"  src="https://chatgenerico.online/otros/r1.gif" alt="Ricardo">
+    <img class="img_ricardo _2"  src="https://chatgenerico.online/otros/r2.gif" alt="Ricardo">
+    <img class="img_ricardo _3"  src="https://chatgenerico.online/otros/r3.gif" alt="Ricardo">
+    <img class="img_ricardo _4"  src="https://chatgenerico.online/otros/r4.gif" alt="Ricardo">
 
     <audio id="myAudio">
-        <source src="https://chatgenerico.online/img/lordly_instrumental.mp3" type="audio/ogg">
-        <source src="https://chatgenerico.online/img/lordly_instrumental.mp3" type="audio/mpeg">
+        <source src="https://chatgenerico.online/otros/lordly_instrumental.mp3" type="audio/ogg">
+        <source src="https://chatgenerico.online/otros/lordly_instrumental.mp3" type="audio/mpeg">
         :C
     </audio>
     <script>
@@ -184,11 +181,12 @@
         }
         function asd(){
             document.querySelector('button').style.display = 'none';
-            x.volume = .7;
+            x.volume = .6;
             x.play();
             let imgs = document.querySelectorAll('.img_ricardo');
             setTimeout(() => {
                 // document.querySelector('p').style.display = 'block';
+                x.setAttribute('controls','');
                 document.querySelector('.contenido').classList.add('disco')
                 imgs.forEach(element => {
                     element.style.display = 'block';

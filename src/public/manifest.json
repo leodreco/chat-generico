@@ -1,0 +1,13 @@
+{
+    "name": "Chat Generico",
+    "short_name": "Chat Generico",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "black",
+    "theme_color": "black",
+    "icons": [{
+        "src": "/img/favicon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }]
+}

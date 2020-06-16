@@ -1,14 +1,23 @@
 var usuario = '';
-document.getElementById('btnLog').addEventListener('click',function(e){
-    let user_name = prompt('Nombre de usuario');
-    if(user_name == null){
+document.getElementById('btnLog').addEventListener('click', e => {
+    let modal = document.querySelector('#modal_usuario');
+    modal.style.display = 'block';
+    setTimeout(() => {
+        modal.classList.add('show');
+    });
+}, false);
+
+document.querySelector('.change_username button').addEventListener('click', e => {
+    let input = document.querySelector('.change_username input');
+    let user_name = input.value;
+    if(user_name.length == 0){
         console.log('Logueo cancelado');
         return;
     }
-    let fd = {'user_name' : user_name};
+
     fetch('/login',{
         method : 'POST',
-        body : JSON.stringify(fd),
+        body : JSON.stringify({user_name}),
         headers : {
             'Content-Type': 'application/json'
         }
@@ -20,7 +29,8 @@ document.getElementById('btnLog').addEventListener('click',function(e){
             window.location.reload();
         }
     });
-});
+}, false);
+
 verificar_sesion();
 
 function verificar_sesion(){
@@ -36,14 +46,7 @@ function verificar_sesion(){
         if(response.state){
             let u = response.user_name;
             usuario = u;
-            document.getElementById('btnLog').innerHTML = u;
+            document.querySelector('#lbl_username').innerText = u;
         }
     });
 }
-var cont_salas = document.querySelector('.cont_salas');
-document.getElementById('btnSalas').addEventListener('click',e=>{
-    if(cont_salas.style.left == '0px')
-        cont_salas.style.left = '-100%';
-    else
-        cont_salas.style.left = '0px';
-});

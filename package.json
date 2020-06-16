@@ -1,7 +1,7 @@
 {
   "name": "chat_generico",
-  "version": "0.1",
-  "description": "Applicacion de chat simple",
+  "version": "0.1.2",
+  "description": "Aplicacion de chat simple",
   "main": "index.js",
   "scripts": {
     "start": "forever start src/server.js",
